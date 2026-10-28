@@ -1,0 +1,106 @@
+{
+  "status": "assets-prepared-project-not-activated",
+  "id": "5",
+  "originals": [
+    {
+      "path": "/Users/huanhaizhuweng/Downloads/个人网站封面05.png",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 253747
+    },
+    {
+      "path": "/Users/huanhaizhuweng/Downloads/butter zuopin.png",
+      "width": 3840,
+      "height": 18436,
+      "bytes": 8592198
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/optimized/project-05-cover-mobile.19d25f6e9ff5.webp",
+      "width": 800,
+      "height": 600,
+      "bytes": 35976
+    },
+    {
+      "path": "assets/optimized/project-05-cover-display.4fc57120d2bd.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 91282
+    },
+    {
+      "path": "assets/optimized/project-05-detail-part01-mobile.136ae4473552.webp",
+      "width": 1280,
+      "height": 2333,
+      "bytes": 137146
+    },
+    {
+      "path": "assets/optimized/project-05-detail-part01-desktop.4bf4136ec833.webp",
+      "width": 1920,
+      "height": 3500,
+      "bytes": 228770
+    },
+    {
+      "path": "assets/optimized/project-05-detail-part02-mobile.c0504b116198.webp",
+      "width": 1280,
+      "height": 2333,
+      "bytes": 181376
+    },
+    {
+      "path": "assets/optimized/project-05-detail-part02-desktop.77ea4e6e5841.webp",
+      "width": 1920,
+      "height": 3500,
+      "bytes": 329444
+    },
+    {
+      "path": "assets/optimized/project-05-detail-part03-mobile.b33b45beb858.webp",
+      "width": 1280,
+      "height": 1479,
+      "bytes": 165972
+    },
+    {
+      "path": "assets/optimized/project-05-detail-part03-desktop.84060f81f0d9.webp",
+      "width": 1920,
+      "height": 2218,
+      "bytes": 290000
+    }
+  ],
+  "coverMobile": {
+    "path": "assets/optimized/project-05-cover-mobile.19d25f6e9ff5.webp",
+    "width": 800,
+    "height": 600,
+    "bytes": 35976
+  },
+  "coverDesktop": {
+    "path": "assets/optimized/project-05-cover-display.4fc57120d2bd.webp",
+    "width": 1600,
+    "height": 1200,
+    "bytes": 91282
+  },
+  "detailResponsive": [
+    {
+      "mobile": "assets/optimized/project-05-detail-part01-mobile.136ae4473552.webp",
+      "mobileWidth": 1280,
+      "mobileHeight": 2333,
+      "desktop": "assets/optimized/project-05-detail-part01-desktop.4bf4136ec833.webp",
+      "desktopWidth": 1920,
+      "desktopHeight": 3500
+    },
+    {
+      "mobile": "assets/optimized/project-05-detail-part02-mobile.c0504b116198.webp",
+      "mobileWidth": 1280,
+      "mobileHeight": 2333,
+      "desktop": "assets/optimized/project-05-detail-part02-desktop.77ea4e6e5841.webp",
+      "desktopWidth": 1920,
+      "desktopHeight": 3500
+    },
+    {
+      "mobile": "assets/optimized/project-05-detail-part03-mobile.b33b45beb858.webp",
+      "mobileWidth": 1280,
+      "mobileHeight": 1479,
+      "desktop": "assets/optimized/project-05-detail-part03-desktop.84060f81f0d9.webp",
+      "desktopWidth": 1920,
+      "desktopHeight": 2218
+    }
+  ]
+}
