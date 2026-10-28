@@ -2,7 +2,7 @@
 .env.*
 !.env.example
 node_modules/
-dist/
+/dist/
 outputs/
 work/
 压缩后资源/
