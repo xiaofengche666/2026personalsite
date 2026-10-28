@@ -6,6 +6,11 @@ gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin);
 let scroll;
 let portfolioPhotoReveal;
 let transitionOffset = 425;
+window.portfolioExpandMobileAbout = function () {
+  if (!window.matchMedia('(max-width:767px)').matches) return;
+  document.documentElement.classList.add('mobile-about-open');
+  requestAnimationFrame(function () { ScrollTrigger.refresh(); });
+};
 
 initPageTransitions();
 
@@ -196,9 +201,19 @@ function pageTransitionOut() {
       headerHomeLoop.defaultMuted = true;
       headerHomeLoop.playsInline = true;
       headerHomeLoop.autoplay = true;
+      function showHomeFrame() {
+        if (headerHomeLoop.requestVideoFrameCallback) {
+          headerHomeLoop.requestVideoFrameCallback(function () {
+            headerHomeLoop.setAttribute('data-frame-ready', 'true');
+          });
+        } else {
+          headerHomeLoop.setAttribute('data-frame-ready', 'true');
+        }
+      }
+      headerHomeLoop.addEventListener('playing', showHomeFrame, {once: true});
       function playHomeLoop() {
         var playback = headerHomeLoop.play();
-        if (playback && playback.catch) playback.catch(function () {});
+        if (playback && playback.then) playback.then(showHomeFrame).catch(function () {});
       }
       // Mobile browsers may never emit canplaythrough for a streamed video.
       headerHomeLoop.addEventListener('loadeddata', playHomeLoop, {once: true});
@@ -499,12 +514,7 @@ function initBasicFunctions() {
   $('[data-home-transition="start"]').click(function () {
 
     var headerHomeTransition = document.getElementById('header-home-transition');
-    var headerHomeVideoDuration = 5;
-
-    // Update video length
-    headerHomeTransition.addEventListener('loadedmetadata', function () {
-      headerHomeVideoDuration = headerHomeTransition.duration;
-    });
+    var homeTransitionFinished = false;
 
     // Set click box on display: none;
     gsap.set($('[data-home-transition="start"]'), {
@@ -584,17 +594,29 @@ function initBasicFunctions() {
 
     function videoHomeTransition() {
       headerHomeTransition.muted = true;
-      headerHomeTransition.load();
-      headerHomeTransition.play();
-      headerHomeTransition.pause();
-      headerHomeTransition.currentTime = 0.5;
-      headerHomeTransition.play();
-      setTimeout(function () {
-        videoHomeTransitionDone();
-      }, (headerHomeVideoDuration - 1.5) * 1000);
+      headerHomeTransition.defaultMuted = true;
+      headerHomeTransition.playsInline = true;
+      headerHomeTransition.loop = false;
+      // Wall-clock timers run during mobile buffering; only reveal About after
+      // the media itself finishes. Preserve preloaded data and play from frame 0.
+      headerHomeTransition.addEventListener('ended', videoHomeTransitionDone, {once: true});
+      headerHomeTransition.currentTime = 0;
+      var playback = headerHomeTransition.play();
+      if (playback && playback.catch) {
+        playback.catch(function () {
+          // A rejected mobile autoplay request can be retried by the next tap.
+          document.addEventListener('pointerup', function () {
+            var retry = headerHomeTransition.play();
+            if (retry && retry.catch) retry.catch(function () {});
+          }, {once: true});
+        });
+      }
     }
 
     function videoHomeTransitionDone() {
+      if (homeTransitionFinished) return;
+      homeTransitionFinished = true;
+      window.portfolioExpandMobileAbout();
       var aboutRevealDuration = Math.max(0.3, ($('.section-about .single-char').length - 1) * 0.015 + 0.15);
       portfolioPhotoReveal = gsap.fromTo($('.about-profile-photo'), {autoAlpha: 0, filter: 'blur(0.12em)', scale: 0.99}, {autoAlpha: 1, filter: 'blur(0em)', scale: 1, duration: 0.75, delay: 0.3, ease: 'power2.out'});
 
@@ -632,6 +654,7 @@ function initBasicFunctions() {
   // Start home transition
   $('[data-home-transition="skip"]').click(function () {
 
+    window.portfolioExpandMobileAbout();
     scroll.start();
 
     gsap.set($('[data-home-transition="start"]'), {

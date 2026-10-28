@@ -1,4 +1,4 @@
-const projects=window.portfolioProjects.slice(0,4);const id=new URLSearchParams(location.search).get('project')||'1';const index=Math.max(0,projects.findIndex(p=>p.id===id));const project=projects[index];const next=projects[(index+1)%projects.length];document.title=project.title+' — Fraser Li';for(const key of ['title','subtitle','category','year'])document.getElementById('case-'+key).textContent=project[key];document.getElementById('case-cover').src=project.image;document.getElementById('case-count').textContent=String(index+1).padStart(2,'0')+' / '+String(projects.length).padStart(2,'0');document.getElementById('case-next').href='project.html?project='+next.id;document.getElementById('case-next-title').textContent=next.title;
+const projects=window.portfolioProjects.slice(0,4);const id=new URLSearchParams(location.search).get('project')||'1';const index=Math.max(0,projects.findIndex(p=>p.id===id));const project=projects[index];const next=projects[(index+1)%projects.length];document.title=project.title+' — Fraser Li';for(const key of ['title','subtitle','category','year'])document.getElementById('case-'+key).textContent=project[key];if(!project.detailImages||!project.detailImages.length)document.getElementById('case-cover').src=project.image;document.getElementById('case-count').textContent=String(index+1).padStart(2,'0')+' / '+String(projects.length).padStart(2,'0');document.getElementById('case-next').href='project.html?project='+next.id;document.getElementById('case-next-title').textContent=next.title;
 sessionStorage.setItem('portfolio-work-index',String(index));
 
 const previous=projects[(index-1+projects.length)%projects.length];
@@ -26,7 +26,7 @@ if(project.detailImages&&project.detailImages.length){
  const main=document.querySelector('main');
  for(const element of main.querySelectorAll('.case-cover,.case-section,.case-canvas,.case-duo'))element.remove();
  const gallery=document.createElement('section');gallery.className='case-artwork-gallery';gallery.setAttribute('aria-label',caseLang==='zh'?'项目设计展示':'Project design presentation');
- project.detailImages.forEach(function(src,i){const image=document.createElement('img');image.src=src;image.alt='Socialfi-Sovrspace APP — '+(i+1);image.loading=i===0?'eager':'lazy';image.decoding='async';gallery.appendChild(image);});
+ project.detailImages.forEach(function(src,i){const image=document.createElement('img');const size=project.detailImageSizes&&project.detailImageSizes[i];if(size){image.width=size.width;image.height=size.height;}image.alt=project.subtitle+' — '+(i+1);image.loading=i===0?'eager':'lazy';image.fetchPriority=i===0?'high':'low';image.decoding='async';image.src=src;gallery.appendChild(image);});
  main.insertBefore(gallery,document.getElementById('case-next'));
 }
 
