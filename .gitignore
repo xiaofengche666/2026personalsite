@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+outputs/
+work/
+压缩后资源/
+资源查看/
+preview.*
+.DS_Store
+assets/images/
+assets/video/
+assets/svg/
+*.log
+deployment/*.zip

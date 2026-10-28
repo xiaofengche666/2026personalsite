@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "publicBaseUrl": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev",
+  "remoteVerified": false,
+  "files": [
+    {
+      "local": "assets/images/6614ee0cc952b412754a4bfb_65f1b21b7f1ea65e9eea5895_STR8FIRE_LOGO_Favicon_W.webp",
+      "bytes": 690,
+      "sha256": "3bd317a2d75687f9bca7cec644fca9c8f35dd5fc342e9c45bfcee340ae750dea",
+      "key": "images/6614ee0cc952b412754a4bfb_65f1b21b7f1ea65e9eea5895_STR8FIRE_LOGO_Favicon_W.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/6614ee0cc952b412754a4bfb_65f1b21b7f1ea65e9eea5895_STR8FIRE_LOGO_Favicon_W.webp"
+    },
+    {
+      "local": "assets/images/661633e747b261749def2fad_grain-repeat-v2.jpg",
+      "bytes": 19043,
+      "sha256": "8504646732d114a1ff43857597b94723d016e06a2febc5a5ca43179458144c47",
+      "key": "images/661633e747b261749def2fad_grain-repeat-v2.jpg",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/661633e747b261749def2fad_grain-repeat-v2.jpg"
+    },
+    {
+      "local": "assets/images/661e77cfb5743372758e8f9c_logo-mexc-global.webp",
+      "bytes": 3958,
+      "sha256": "eb9dbcadf4279b7377128851c85276e9a60813c707841feba0a833a72ada62d6",
+      "key": "images/661e77cfb5743372758e8f9c_logo-mexc-global.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/661e77cfb5743372758e8f9c_logo-mexc-global.webp"
+    },
+    {
+      "local": "assets/images/66278b003d703ccbcebcf4ae_footer-bg-image-p-1600.jpg",
+      "bytes": 34781,
+      "sha256": "70bae53fb707ea36fb41d7483da86b5cdc77cac743b80ab24a0f3728a556e186",
+      "key": "images/66278b003d703ccbcebcf4ae_footer-bg-image-p-1600.jpg",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/66278b003d703ccbcebcf4ae_footer-bg-image-p-1600.jpg"
+    },
+    {
+      "local": "assets/images/66278b9a852c6f78b4c02ec7_footer-bg-image-front_big-p-1600.webp",
+      "bytes": 398670,
+      "sha256": "b245cc8759f4ebfb5967081bf09e907584425969814f4d3c812732cd37b27072",
+      "key": "images/66278b9a852c6f78b4c02ec7_footer-bg-image-front_big-p-1600.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/66278b9a852c6f78b4c02ec7_footer-bg-image-front_big-p-1600.webp"
+    },
+    {
+      "local": "assets/images/6628be315259e668641b82e2_S8F_web_loop_poster.jpg",
+      "bytes": 128041,
+      "sha256": "ac65f1fb23de808695530831f4a927705ee1fb3daa20de8f0dd8d6f60d701978",
+      "key": "images/6628be315259e668641b82e2_S8F_web_loop_poster.jpg",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/6628be315259e668641b82e2_S8F_web_loop_poster.jpg"
+    },
+    {
+      "local": "assets/images/company-bytedance-white.webp",
+      "bytes": 155086,
+      "sha256": "1c02077d82b7a7732d47900fe2b51317f3cae57225c0eb13cb81e8553586e255",
+      "key": "images/company-bytedance-white.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/company-bytedance-white.webp"
+    },
+    {
+      "local": "assets/images/company-cointr.webp",
+      "bytes": 3444,
+      "sha256": "349cfcb2675b0cd46d4d68889230e5492df5a40d51d66e3770c4cbb36806627d",
+      "key": "images/company-cointr.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/company-cointr.webp"
+    },
+    {
+      "local": "assets/images/company-duxiaoman.webp",
+      "bytes": 3672,
+      "sha256": "111b09ed5b23ddfd79319a416d34e19b4b63252fc7b99f1562bc1375cec9bc69",
+      "key": "images/company-duxiaoman.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/company-duxiaoman.webp"
+    },
+    {
+      "local": "assets/images/company-iost-white.webp",
+      "bytes": 149960,
+      "sha256": "af79d6f58ac68ea46fe2dd262efb328dc9becdb4c50bf1b459ab7c32536d358b",
+      "key": "images/company-iost-white.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/company-iost-white.webp"
+    },
+    {
+      "local": "assets/images/fraser-portrait-new.webp",
+      "bytes": 1556412,
+      "sha256": "3f517231b00614a627175248993fa781763ac775406e09edea39739fb54fc9d0",
+      "key": "images/fraser-portrait-new.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/fraser-portrait-new.webp"
+    },
+    {
+      "local": "assets/images/project-01-cover.webp",
+      "bytes": 695408,
+      "sha256": "bff9ad1ee1827b1ceb5c16ccf19768a85b83cdc0dc7f3e0c541c9ab298a84966",
+      "key": "images/project-01-cover.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/project-01-cover.webp"
+    },
+    {
+      "local": "assets/images/project-02-cover.webp",
+      "bytes": 1263424,
+      "sha256": "67054d5437c829d733264071623eaad9b7ac70d9f84537d22db1faf29415e400",
+      "key": "images/project-02-cover.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/project-02-cover.webp"
+    },
+    {
+      "local": "assets/images/project-02-detail-01.webp",
+      "bytes": 9894932,
+      "sha256": "4d2e2f3f06d7a0e2918d6a04a081c6d43f7562ba456ca9bf67d14bd2a385bb95",
+      "key": "images/project-02-detail-01.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/project-02-detail-01.webp"
+    },
+    {
+      "local": "assets/images/project-02-detail-02-part01.webp",
+      "bytes": 10098516,
+      "sha256": "d70702d65b6d618c9b596aec72c645a764c757ce536460ef99c451e8cce7f703",
+      "key": "images/project-02-detail-02-part01.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/project-02-detail-02-part01.webp"
+    },
+    {
+      "local": "assets/images/project-02-detail-02-part02.webp",
+      "bytes": 12561898,
+      "sha256": "31df333dab326b70b2a6581c2423142564317bf49240d482642a7db0143582e2",
+      "key": "images/project-02-detail-02-part02.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/project-02-detail-02-part02.webp"
+    },
+    {
+      "local": "assets/images/project-02-detail-02-part03.webp",
+      "bytes": 1553344,
+      "sha256": "4cd5ebd8bec5cf74f8f211ccb4feb6bb07a22b68ee4835e04f591211f072efe1",
+      "key": "images/project-02-detail-02-part03.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/project-02-detail-02-part03.webp"
+    },
+    {
+      "local": "assets/images/project-03-cover.webp",
+      "bytes": 1553068,
+      "sha256": "3e63fc5608a1a12c7096105addac4b671be6be72e6b92c23d5e7e33edb1e38f7",
+      "key": "images/project-03-cover.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/project-03-cover.webp"
+    },
+    {
+      "local": "assets/images/project-03-detail-01.webp",
+      "bytes": 12772006,
+      "sha256": "a46b0682146bc4e9678090acea93e9e4a2d6470a6ee1b80819e2db6fe8edcfad",
+      "key": "images/project-03-detail-01.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/project-03-detail-01.webp"
+    },
+    {
+      "local": "assets/images/project-04-cover.webp",
+      "bytes": 695838,
+      "sha256": "a114c9b2e20057928b7c8efb62a67d4bea274f90852c405e6830fd8592ba2d0c",
+      "key": "images/project-04-cover.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/project-04-cover.webp"
+    },
+    {
+      "local": "assets/images/project-04-detail-01.webp",
+      "bytes": 5748252,
+      "sha256": "dab96d52993bcb16acee7cbb20f56dcff15823d260f3eb5b2e44a303c0ec7b8d",
+      "key": "images/project-04-detail-01.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/project-04-detail-01.webp"
+    },
+    {
+      "local": "assets/images/project-04-detail-02.webp",
+      "bytes": 9352686,
+      "sha256": "242fc231a154c0aa192fdd89407e93fc163f2ec3d91d400641cb519ddbc6a7a1",
+      "key": "images/project-04-detail-02.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/project-04-detail-02.webp"
+    },
+    {
+      "local": "assets/images/sovrspace-case-01.webp",
+      "bytes": 10134042,
+      "sha256": "62527e9893cca7019995df24203409798b61fe75a378affe5c296b2af0bc343e",
+      "key": "images/sovrspace-case-01.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/sovrspace-case-01.webp"
+    },
+    {
+      "local": "assets/images/sovrspace-case-02-part01.webp",
+      "bytes": 78284,
+      "sha256": "8fec743892f8b162d3fa5e4897ae5dbe8cc0a4da8e58b973273def5363684f04",
+      "key": "images/sovrspace-case-02-part01.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/sovrspace-case-02-part01.webp"
+    },
+    {
+      "local": "assets/images/sovrspace-case-02-part02.webp",
+      "bytes": 4800890,
+      "sha256": "0ccde5e34147a480a485180a3d07a1b7512820c2fba439b7a07c7f8cdf75e873",
+      "key": "images/sovrspace-case-02-part02.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/sovrspace-case-02-part02.webp"
+    },
+    {
+      "local": "assets/images/sovrspace-case-02-part03.webp",
+      "bytes": 8234790,
+      "sha256": "801bb5d9daa2a3b1688343399c447e14748271378a4f810f5904ee9b81613835",
+      "key": "images/sovrspace-case-02-part03.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/sovrspace-case-02-part03.webp"
+    },
+    {
+      "local": "assets/images/sovrspace-case-03-part01.webp",
+      "bytes": 2152762,
+      "sha256": "50b8641eae73d4a480b79ea56b9f57ac69b5be61d96dbac950d66eb59ca82d43",
+      "key": "images/sovrspace-case-03-part01.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/sovrspace-case-03-part01.webp"
+    },
+    {
+      "local": "assets/images/sovrspace-case-03-part02.webp",
+      "bytes": 8971434,
+      "sha256": "182f1e9c119baea454a66ddfe3bbca8fa3d326c8554eeac6f4d5af06f527991c",
+      "key": "images/sovrspace-case-03-part02.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/sovrspace-case-03-part02.webp"
+    },
+    {
+      "local": "assets/images/sovrspace-case-03-part03.webp",
+      "bytes": 5873222,
+      "sha256": "7a96f81aa96c6a2a17ff8b7f534b1e863c0e0c42654859866db9e74435c6619e",
+      "key": "images/sovrspace-case-03-part03.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/sovrspace-case-03-part03.webp"
+    },
+    {
+      "local": "assets/images/sovrspace-case-04-part01.webp",
+      "bytes": 6295842,
+      "sha256": "2f1e779050bd0612def30a641dac9ebb28fff9834a3e77c6110f2d65785852a2",
+      "key": "images/sovrspace-case-04-part01.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/sovrspace-case-04-part01.webp"
+    },
+    {
+      "local": "assets/images/sovrspace-case-04-part02.webp",
+      "bytes": 8957540,
+      "sha256": "97a125fab890d75f61f2be8004e573f01fe42e19e8cbf34d5f43dca581788443",
+      "key": "images/sovrspace-case-04-part02.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/sovrspace-case-04-part02.webp"
+    },
+    {
+      "local": "assets/images/sovrspace-case-04-part03.webp",
+      "bytes": 12596010,
+      "sha256": "6dd9798e8de1c26a96528736554e889456940841f16c595baa3269c47d274a6d",
+      "key": "images/sovrspace-case-04-part03.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/sovrspace-case-04-part03.webp"
+    },
+    {
+      "local": "assets/images/wechat-qr.webp",
+      "bytes": 126448,
+      "sha256": "6e2bcaaa6424f85a65bb8bb2653cb2d899be008810318c3dbe18879eb38503dc",
+      "key": "images/wechat-qr.webp",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/images/wechat-qr.webp"
+    },
+    {
+      "local": "assets/video/cyber-diva-compressed.mp4",
+      "bytes": 2469557,
+      "sha256": "d4a31b5ebe64a97c4aff7547778512af6dbedfb3b5cd057c45ee2c0425a41ff3",
+      "key": "video/cyber-diva-compressed.mp4",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/video/cyber-diva-compressed.mp4"
+    },
+    {
+      "local": "assets/video/cyber-monk-compressed.mp4",
+      "bytes": 2005695,
+      "sha256": "061836e747ff59725c7508c2162b2fb0a06a0c3178c1f1d067c4fde80605481b",
+      "key": "video/cyber-monk-compressed.mp4",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/video/cyber-monk-compressed.mp4"
+    },
+    {
+      "local": "assets/video/hero-loop-compressed.mp4",
+      "bytes": 4582307,
+      "sha256": "4697f2e7aa04a655a2152642c6fd9d0c02046cd05fddb2aadb7f0fec6fb0981d",
+      "key": "video/hero-loop-compressed.mp4",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/video/hero-loop-compressed.mp4"
+    },
+    {
+      "local": "assets/video/hero-zoomin-compressed.mp4",
+      "bytes": 2305037,
+      "sha256": "56bce65aaddfbc6bd8bd9b742fdcd211dac7e9b67438488a6daf06b01a46518e",
+      "key": "video/hero-zoomin-compressed.mp4",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/video/hero-zoomin-compressed.mp4"
+    },
+    {
+      "local": "assets/video/mantis-swordsman-compressed.mp4",
+      "bytes": 2702491,
+      "sha256": "e05dcf9352338ffb59192caac172b5e90a1b96d3595078ce1283f4758e7f3636",
+      "key": "video/mantis-swordsman-compressed.mp4",
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/video/mantis-swordsman-compressed.mp4"
+    }
+  ]
+}

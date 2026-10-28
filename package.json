@@ -1,0 +1,16 @@
+{
+  "name": "fraser-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "r2:plan": "node scripts/upload-r2.mjs",
+    "r2:upload": "node scripts/upload-r2.mjs --upload",
+    "build": "node scripts/build-r2.mjs --r2",
+    "r2:verify": "node scripts/verify-r2.mjs",
+    "build:standalone": "node scripts/build-r2.mjs",
+    "deploy": "npx wrangler deploy"
+  },
+  "engines": {
+    "node": ">=20.11"
+  }
+}
