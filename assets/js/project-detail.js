@@ -1,4 +1,4 @@
-const projects=window.portfolioProjects.slice(0,4);const id=new URLSearchParams(location.search).get('project')||'1';const index=Math.max(0,projects.findIndex(p=>p.id===id));const project=projects[index];const next=projects[(index+1)%projects.length];document.title=project.title+' — Fraser Li';for(const key of ['title','subtitle','category','year'])document.getElementById('case-'+key).textContent=project[key];if(!project.detailImages||!project.detailImages.length)document.getElementById('case-cover').src=project.image;document.getElementById('case-count').textContent=String(index+1).padStart(2,'0')+' / '+String(projects.length).padStart(2,'0');document.getElementById('case-next').href='project.html?project='+next.id;document.getElementById('case-next-title').textContent=next.title;
+const projects=window.portfolioProjects.slice(0,4);const id=new URLSearchParams(location.search).get('project')||'1';const index=Math.max(0,projects.findIndex(p=>p.id===id));const project=projects[index];const next=projects[(index+1)%projects.length];document.title="Fraser's UIUX Portfolio";for(const key of ['title','subtitle','category','year'])document.getElementById('case-'+key).textContent=project[key];if(!project.detailImages||!project.detailImages.length)document.getElementById('case-cover').src=project.image;document.getElementById('case-count').textContent=String(index+1).padStart(2,'0')+' / '+String(projects.length).padStart(2,'0');document.getElementById('case-next').href='project.html?project='+next.id;document.getElementById('case-next-title').textContent=next.title;
 sessionStorage.setItem('portfolio-work-index',String(index));
 
 const previous=projects[(index-1+projects.length)%projects.length];
@@ -17,7 +17,7 @@ if(caseLang==='zh'){
  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const nodes=[];let node;
  while(node=walker.nextNode())if(!node.parentElement.closest('script,style,svg'))nodes.push(node);
  for(const node of nodes){const key=node.textContent.trim();if(translations[key])node.textContent=translations[key];else if(/^PROJECT \d+$/.test(key))node.textContent=key.replace('PROJECT','项目');}
- document.title='项目 '+String(index+1).padStart(2,'0')+' — Fraser Li';
+ document.title="Fraser's UIUX Portfolio";
  document.getElementById('case-prev-arrow').setAttribute('aria-label','上一个项目');document.getElementById('case-next-arrow').setAttribute('aria-label','下一个项目');
 }
 

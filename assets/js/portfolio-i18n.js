@@ -3,16 +3,17 @@ var dictionary={"Click to enter": "点击进入", "Loading STR8FIRE ...": "正�
 dictionary["COMPANIES I'VE WORKED WITH"]='服务过的公司';
 Object.assign(dictionary,{"/ FRASER'S DESIGN JOURNEY": "/ Fraser的设计来时路", "COLLEGE": "大学", "Graduated in Visual Communication from Tianjin Academy of Fine Arts, then taught myself UI design.": "从天津美术学院视觉传达毕业，通过自学走上UI设计之路", "WEB3": "web3", "My first job in Beijing was at IOST, a blockchain project that sparked my connection with Web3.": "去北京加入的第一家公司正是区块链项目方IOST，从此跟web3结下缘分", "BIG TECH": "光环", "Joined Baidu and ByteDance to broaden my design perspective and build stronger design standards.": "我加入了两家传统互联网大公司（百度和字节），目标提升自己的设计眼界和规范性", "RETURN": "回归", "My passion for Web3 brought me back to blockchain, working with multiple exchanges and projects.": "依然热爱web3，所以毅然决然重新回到区块链行业，并加入多家交易所和项目方任职"});
 dictionary['DIGITAL']='数字';dictionary['EXPERIENCES']='体验';
-dictionary['SWITCH LANGUAGE']='切换语言';
+dictionary['SWITCH LANGUAGE']='切换语言';dictionary['SHOWCASE']='作品展示';
 Object.assign(dictionary,{"HOME": "首页", "ABOUT ME": "关于我", "DESIGN JOURNEY": "设计来时路", "COMPANIES": "服务过的公司"});
 var lang=new URLSearchParams(location.search).get('lang');if(lang!=='zh'&&lang!=='en'){lang='zh';try{if(localStorage.getItem('portfolio-language-chosen')==='true')lang=localStorage.getItem('portfolio-language')==='en'?'en':'zh';}catch(e){}}
 try{localStorage.setItem('portfolio-language',lang);}catch(e){}
 document.documentElement.lang=lang==='zh'?'zh-CN':'en';
+document.title="Fraser's UIUX Portfolio";
 if(lang==='zh'){
 var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),nodes=[],node;
 while(node=walker.nextNode()){if(!node.parentElement.closest('script,style,svg,.language-toggle'))nodes.push(node);}
 nodes.forEach(function(n){var key=n.textContent.trim().replace(/\u00a0/g,' ');if(dictionary[key])n.textContent=n.textContent.replace(n.textContent.trim(),dictionary[key].replace(/。/g,''));});
-document.title='Fraser Li | 个人设计作品集';
+
 }
 document.querySelectorAll('.language-toggle').forEach(function(b){b.querySelector('[data-lang="'+lang+'"]').classList.add('active');b.setAttribute('aria-label',lang==='zh'?'切换为英文':'Switch to Chinese');});
 document.addEventListener('click',function(e){var b=e.target.closest('.language-toggle');if(!b)return;e.preventDefault();e.stopImmediatePropagation();try{localStorage.setItem('portfolio-language',lang==='en'?'zh':'en');localStorage.setItem('portfolio-language-chosen','true');}catch(e){}var url=new URL(location.href);url.searchParams.set('lang',lang==='en'?'zh':'en');location.assign(url.href);},true);

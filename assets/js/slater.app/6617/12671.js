@@ -636,22 +636,21 @@ function initBasicFunctions() {
       portfolioPhotoReveal = gsap.fromTo($('.about-profile-photo'), {autoAlpha: 0, filter: 'blur(0.12em)', scale: 0.99}, {autoAlpha: 1, filter: 'blur(0em)', scale: 1, duration: 0.75, delay: 0.3, ease: 'power2.out'});
 
 
-      gsap.to($('.section-about').find('.single-char'), {
-        duration: 0.15,
-        stagger: 0.015,
-        scrambleText: {
-          text: "{original}",
-          speed: 0,
-          chars: scrambleCharacters,
-          tweenLength: false,
-          revealDelay: 0.15,
-        }
-      });
-
-      gsap.set($('.section-about').find('.single-char'), {
-        opacity: 1,
-        stagger: 0.015,
-      });
+      var aboutChars = $('.section-about').find('.single-char');
+      gsap.killTweensOf(aboutChars);
+      if (document.documentElement.lang === 'zh-CN') {
+        // Digit scrambling changes Chinese glyph widths and line wrapping.
+        // Keep the real characters in layout and animate opacity only.
+        aboutChars.each(function () { this.textContent = this.getAttribute('data-original-char'); });
+        gsap.to(aboutChars, {opacity: 1, duration: 0.15, stagger: 0.015, overwrite: true});
+      } else {
+        gsap.to(aboutChars, {
+          duration: 0.15,
+          stagger: 0.015,
+          scrambleText: {text: "{original}", speed: 0, chars: scrambleCharacters, tweenLength: false, revealDelay: 0.15}
+        });
+        gsap.set(aboutChars, {opacity: 1, stagger: 0.015});
+      }
 
       gsap.to($(headerHomeTransition).parent(), {
         autoAlpha: 0,
