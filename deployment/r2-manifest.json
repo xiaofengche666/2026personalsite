@@ -253,14 +253,14 @@
       "bytes": 4582307,
       "sha256": "4697f2e7aa04a655a2152642c6fd9d0c02046cd05fddb2aadb7f0fec6fb0981d",
       "key": "video/hero-loop-compressed.mp4",
-      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/video/hero-loop-compressed.mp4"
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/video/hero-loop-compressed.mp4?v=4697f2e7aa04"
     },
     {
       "local": "assets/video/hero-zoomin-compressed.mp4",
       "bytes": 2305037,
       "sha256": "56bce65aaddfbc6bd8bd9b742fdcd211dac7e9b67438488a6daf06b01a46518e",
       "key": "video/hero-zoomin-compressed.mp4",
-      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/video/hero-zoomin-compressed.mp4"
+      "url": "https://pub-8c5e17820cac412780ac545526a31fb3.r2.dev/video/hero-zoomin-compressed.mp4?v=56bce65aaddf"
     },
     {
       "local": "assets/video/mantis-swordsman-compressed.mp4",

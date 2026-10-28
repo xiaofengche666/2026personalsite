@@ -193,10 +193,18 @@ function pageTransitionOut() {
 
       // Start Video home
       headerHomeLoop.muted = true;
-      headerHomeLoop.addEventListener('canplaythrough', function () {
-        headerHomeLoop.play();
-      });
+      headerHomeLoop.defaultMuted = true;
+      headerHomeLoop.playsInline = true;
+      headerHomeLoop.autoplay = true;
+      function playHomeLoop() {
+        var playback = headerHomeLoop.play();
+        if (playback && playback.catch) playback.catch(function () {});
+      }
+      // Mobile browsers may never emit canplaythrough for a streamed video.
+      headerHomeLoop.addEventListener('loadeddata', playHomeLoop, {once: true});
+      headerHomeLoop.addEventListener('canplay', playHomeLoop, {once: true});
       headerHomeLoop.load();
+      playHomeLoop();
     } else {
       // if page = not homepage
       setTimeout(function () {
