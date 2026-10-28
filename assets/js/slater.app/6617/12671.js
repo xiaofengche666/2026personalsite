@@ -1144,7 +1144,7 @@ function initFlickitySlider() {
     var flickitySliderGroup = document.querySelector('#' + sliderIndexID +
       ' .flickity-carousel');
 
-    $(flickitySliderGroup).children('.flickity-slide').slice(4).addClass('work-card-hidden');
+    $(flickitySliderGroup).children('.flickity-slide').slice(5).addClass('work-card-hidden');
     let flickitySlider = new Flickity(flickitySliderGroup, {
       cellSelector: '.flickity-slide:not(.work-card-hidden)',
       // options
