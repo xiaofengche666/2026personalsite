@@ -353,17 +353,26 @@ function initLenis() {
 
   gsap.ticker.add((time) => {
     scroll.raf(time * 1000);
-    if (window.scrollY > window.innerHeight * 2) return;
     var text=document.querySelector('.home-header-about-text-container');
     var photo=document.querySelector('.about-profile-photo');
     if(text&&photo){
       if(window.scrollY>1){
         if(portfolioPhotoReveal)portfolioPhotoReveal.kill();
-        gsap.set(photo,{autoAlpha:gsap.getProperty(text,'opacity'),scale:gsap.getProperty(text,'scale'),filter:gsap.getProperty(text,'filter')||'blur(0px)'});
+        var opacity=gsap.getProperty(text,'opacity');
+        var scale=gsap.getProperty(text,'scale');
+        var filter=gsap.getProperty(text,'filter')||'blur(0px)';
+        var visualState=opacity+'|'+scale+'|'+filter;
+        // Returns from a detail page can start beyond the intro animation range.
+        // Always synchronize, but avoid writing the same styles every frame.
+        if(photo.dataset.scrollVisualState!==visualState){
+          gsap.set(photo,{autoAlpha:opacity,scale:scale,filter:filter});
+          photo.dataset.scrollVisualState=visualState;
+        }
         photo.dataset.wasScrolling='true';
       }else if(photo.dataset.wasScrolling==='true'){
         gsap.set(photo,{autoAlpha:1,scale:1,filter:'blur(0px)'});
         delete photo.dataset.wasScrolling;
+        delete photo.dataset.scrollVisualState;
       }
     }
   });
