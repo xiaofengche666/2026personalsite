@@ -21,19 +21,52 @@ if(caseLang==='zh'){
  document.getElementById('case-prev-arrow').setAttribute('aria-label','上一个项目');document.getElementById('case-next-arrow').setAttribute('aria-label','下一个项目');
 }
 
+function mediaRetryURL(src, attempt) {
+ const url=new URL(src,location.href);url.searchParams.set('retry',String(attempt)+'-'+Date.now());return url.href;
+}
+function mediaRetryButton(parent, retry) {
+ const button=document.createElement('button');button.className='case-media-retry';button.type='button';
+ button.textContent=caseLang==='zh'?'资源加载失败，点击重试':'Loading failed — tap to retry';
+ button.addEventListener('click',function(){button.remove();retry();});parent.appendChild(button);return button;
+}
 if(project.detailImages&&project.detailImages.length){
  document.documentElement.classList.add('has-project-artwork');
  const main=document.querySelector('main');
  for(const element of main.querySelectorAll('.case-cover,.case-section,.case-canvas,.case-duo'))element.remove();
  const gallery=document.createElement('section');gallery.className='case-artwork-gallery';gallery.setAttribute('aria-label',caseLang==='zh'?'项目设计展示':'Project design presentation');
- project.detailImages.forEach(function(src,i){const image=document.createElement('img');const size=project.detailImageSizes&&project.detailImageSizes[i];if(size){image.width=size.width;image.height=size.height;}image.alt=project.subtitle+' — '+(i+1);image.loading=i===0?'eager':'lazy';image.fetchPriority=i===0?'high':'low';image.decoding='async';image.src=src;gallery.appendChild(image);});
+ project.detailImages.forEach(function(src,i){
+  const picture=document.createElement('picture'),image=document.createElement('img');
+  const variant=project.detailResponsive&&project.detailResponsive[i];
+  const size=project.detailImageSizes&&project.detailImageSizes[i];
+  let mobileSource=null,attempt=0,retryButton=null;
+  if(size){image.width=size.width;image.height=size.height;}
+  if(variant){mobileSource=document.createElement('source');mobileSource.media='(max-width:767px)';mobileSource.srcset=variant.mobile;picture.appendChild(mobileSource);}
+  const displaySrc=variant?variant.desktop:src;
+  image.alt=project.subtitle+' — '+(i+1);image.loading=i===0?'eager':'lazy';image.fetchPriority=i===0?'high':'low';image.decoding='async';
+  function retry(){attempt++;if(mobileSource)mobileSource.srcset=mediaRetryURL(variant.mobile,attempt);image.src=mediaRetryURL(displaySrc,attempt);}
+  image.addEventListener('load',function(){if(retryButton){retryButton.remove();retryButton=null;}});
+  image.addEventListener('error',function(){if(attempt<2)setTimeout(retry,800*(attempt+1));else if(!retryButton)retryButton=mediaRetryButton(picture,function(){retryButton=null;retry();});});
+  image.src=displaySrc;picture.appendChild(image);gallery.appendChild(picture);
+ });
  main.insertBefore(gallery,document.getElementById('case-next'));
 }
 
-if(project.detailVideos&&project.detailVideos.length){
+const displayVideos=project.detailDisplayVideos||project.detailVideos;
+if(displayVideos&&displayVideos.length){
  const videos=document.createElement('section');videos.className='case-video-gallery';
  videos.setAttribute('aria-label',caseLang==='zh'?'项目动态展示':'Project motion showcase');
- project.detailVideos.forEach(function(src,i){const video=document.createElement('video');video.controls=true;video.playsInline=true;video.preload='metadata';video.src=src;video.setAttribute('aria-label',(caseLang==='zh'?'项目视频 ':'Project video ')+(i+1));videos.appendChild(video);});
+ const observer=window.IntersectionObserver?new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.src=entry.target.dataset.src;entry.target.preload='metadata';observer.unobserve(entry.target);}});},{rootMargin:'400px'}):null;
+ displayVideos.forEach(function(src,i){
+  const wrapper=document.createElement('div'),video=document.createElement('video');
+  let attempts=0,button=null;
+  video.controls=true;video.playsInline=true;video.preload='none';video.dataset.src=src;
+  video.width=1920;video.height=1080;video.setAttribute('aria-label',(caseLang==='zh'?'项目视频 ':'Project video ')+(i+1));
+  function retry(){attempts++;video.src=mediaRetryURL(src,attempts);video.load();}
+  video.addEventListener('error',function(){if(attempts<2)setTimeout(retry,1000*(attempts+1));else if(!button)button=mediaRetryButton(wrapper,function(){button=null;retry();});});
+  video.addEventListener('loadedmetadata',function(){if(button){button.remove();button=null;}});
+  wrapper.appendChild(video);videos.appendChild(wrapper);
+  if(observer)observer.observe(video);else video.src=src;
+ });
  document.querySelector('main').insertBefore(videos,document.getElementById('case-next'));
 }
 

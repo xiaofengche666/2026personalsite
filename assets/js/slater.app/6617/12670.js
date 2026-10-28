@@ -258,8 +258,13 @@ var FlickityTransformer = function () {
             .cellElements[i];
           var txs = [];
           var xPos = void 0;
-          xPos = slide.parent.x < 0 ? slide.target - Math.abs(slide.parent.x) : slide
-            .target + slide.parent.x;
+          xPos = slide.target + slide.parent.x;
+          // Measure the nearest wrapped copy, so repeated loops keep the same
+          // scale/rotation instead of accumulating transforms across cycles.
+          if (slide.parent.options.wrapAround && slide.parent.slideableWidth > 0) {
+            var span = slide.parent.slideableWidth;
+            xPos = ((xPos + span / 2) % span + span) % span - span / 2;
+          }
           this.transforms.forEach(function (transform) {
             txs.push(_this2.makeTransform(
               transform, xPos))

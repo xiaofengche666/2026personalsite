@@ -44,3 +44,7 @@ https://github.com/xiaofengche666/2026personalsite
 在本地终端运行 `bash scripts/push-github.sh`。首次 Git HTTPS 推送可能要求 GitHub 身份验证；浏览器登录不等于 Git 已登录。脚本不会强制覆盖远端历史，也不会提交 .env。若远端已有 README 导致推送拒绝，请保留报错再处理，不要 force push。
 
 用户提供的图片 URL 确认 R2 使用 images/文件名的目录结构，但其他文件可用性尚未逐个验证。
+
+## 展示资源优化
+
+原始图片和视频继续保存在本地备份与 R2；assets/optimized 是用于网页展示的轻量版本，需随代码提交。手机案例图片宽1280，桌面1920，内容哈希命名并长期缓存。三个详情视频无损重封装为 faststart，进入视口附近才加载。预览画质如需回退，原图路径仍保存在 projects-data 的 detailImages 中。

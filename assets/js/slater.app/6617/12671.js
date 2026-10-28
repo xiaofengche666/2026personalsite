@@ -342,6 +342,7 @@ function initLenis() {
 
   gsap.ticker.add((time) => {
     scroll.raf(time * 1000);
+    if (window.scrollY > window.innerHeight * 2) return;
     var text=document.querySelector('.home-header-about-text-container');
     var photo=document.querySelector('.about-profile-photo');
     if(text&&photo){
@@ -1136,13 +1137,13 @@ function initFlickitySlider() {
       // options
       watchCSS: true,
       contain: false,
-      wrapAround: false,
+      wrapAround: true,
       dragThreshold: 10,
       prevNextButtons: false,
       pageDots: false,
       cellAlign: 'center',
-      selectedAttraction: 0.015,
-      friction: 0.25,
+      selectedAttraction: 0.03,
+      friction: 0.3,
       percentPosition: true,
       initialIndex: document.documentElement.classList.contains('returning-to-work') ? Math.max(0,Number(sessionStorage.getItem('portfolio-work-index'))||0) : 0
     });
@@ -1153,6 +1154,7 @@ function initFlickitySlider() {
 
     // Source: https://github.com/elcontraption/flickity-transformer
     // Codepen: https://codepen.io/coder787/pen/vYgjamR
+    if (!window.matchMedia('(max-width:767px)').matches) {
     const transformer = new FlickityTransformer(flickitySlider, [
     {
       name: "scale",
@@ -1178,6 +1180,7 @@ function initFlickitySlider() {
         [windowWidth, 45]
       ]
     }]);
+    }
 
   });
 

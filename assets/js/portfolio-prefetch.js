@@ -4,6 +4,7 @@
   if (connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType))) return;
   var warmed = new Set();
   var heldImages = [];
+  var warmTimer;
   function warm(project) {
     if (!project || warmed.has(project.id)) return;
     warmed.add(project.id);
@@ -11,7 +12,8 @@
     var image = new Image();
     image.decoding = 'async';
     image.fetchPriority = 'low';
-    image.src = (project.detailImages && project.detailImages[0]) || project.image;
+    var variant = project.detailResponsive && project.detailResponsive[0];
+    image.src = variant ? (window.matchMedia('(max-width:767px)').matches ? variant.mobile : variant.desktop) : ((project.detailImages && project.detailImages[0]) || project.image);
     heldImages.push(image);
     var page = document.createElement('link');
     page.rel = 'prefetch'; page.as = 'document';
@@ -22,7 +24,9 @@
     var card = event.target.closest('.section-team-credits .team-credits-card');
     if (card) {
       var cells = Array.from(card.closest('.flickity-carousel').children);
-      warm(projects[cells.indexOf(card.closest('.flickity-slide'))]);
+      clearTimeout(warmTimer);
+      var selectedProject = projects[cells.indexOf(card.closest('.flickity-slide'))];
+      warmTimer = setTimeout(function () { warm(selectedProject); }, 180);
       return;
     }
     var link = event.target.closest('.case-project-pagination a,#case-next');

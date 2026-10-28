@@ -37,7 +37,7 @@ async function main(){
  await rm(out,{recursive:true,force:true});await mkdir(out,{recursive:true});
  async function copy(src,dst){await mkdir(dst,{recursive:true});for(const d of await readdir(src,{withFileTypes:true})){const a=path.join(src,d.name),b=path.join(dst,d.name);if(d.isDirectory())await copy(a,b);else if(d.isFile()&&d.name!=='.DS_Store'){
   if(/^(projects-data|project-detail)\.[a-f0-9]+\.js$/.test(d.name))continue;
-  if(useR2&&media.test(a)){const local=path.relative(root,a).split(path.sep).join('/');if(!manifest.files.some(f=>f.local===local))throw Error(`Media missing from manifest: ${local}`);continue;}
+  if(useR2&&media.test(a)&&!path.relative(root,a).split(path.sep).join('/').startsWith('assets/optimized/')){const local=path.relative(root,a).split(path.sep).join('/');if(!manifest.files.some(f=>f.local===local))throw Error(`Media missing from manifest: ${local}`);continue;}
   if(/\.(html|css|js|json)$/i.test(a))await writeFile(b,rewrites(await readFile(a,'utf8'),a));else await copyFile(a,b);
  }}}
  await copy(path.join(root,'assets'),path.join(out,'assets'));
@@ -56,7 +56,7 @@ async function main(){
   for(const match of matches){const body=await readFile(path.join(out,match[1]));const digest=createHash('sha256').update(body).digest('hex').slice(0,12);text=text.replace(match[0],match[0].replace(/(assets\/[^"']+)/,match[1]+'?v='+digest));}
   await writeFile(file,text);
  }
- await writeFile(path.join(out,'_headers'),'/*\n  Cache-Control: public, max-age=0, must-revalidate\n');
+ await writeFile(path.join(out,'_headers'),'/\n  Cache-Control: no-cache\n/*.html\n  Cache-Control: no-cache\n/index\n  Cache-Control: no-cache\n/project\n  Cache-Control: no-cache\n/assets/js/*\n  Cache-Control: public, max-age=0, must-revalidate\n/assets/css/*\n  Cache-Control: public, max-age=0, must-revalidate\n/assets/optimized/*\n  Cache-Control: public, max-age=31536000, immutable\n');
  console.log(`Built dist/: ${useR2?'R2 media':'self-contained compressed media'}, source files unchanged.`);
 }
 main().catch(e=>{console.error(e.message);process.exitCode=1;});
