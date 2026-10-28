@@ -9,7 +9,7 @@ document.querySelector('.case-back').addEventListener('click',function(){session
 const analysisLink=document.getElementById('case-analysis-link');if(analysisLink)analysisLink.href=project.analysisUrl||'https://www.google.com/';
 const scopeElement=document.getElementById('case-scope');if(scopeElement&&project.scope)scopeElement.textContent=project.scope;
 let caseLang=new URLSearchParams(location.search).get('lang');
-if(caseLang!=='en'&&caseLang!=='zh'){try{caseLang=localStorage.getItem('portfolio-language')||'en';}catch(e){caseLang='en';}}
+if(caseLang!=='en'&&caseLang!=='zh'){try{caseLang=localStorage.getItem('portfolio-language-chosen')==='true'&&localStorage.getItem('portfolio-language')==='en'?'en':'zh';}catch(e){caseLang='zh';}}
 document.documentElement.lang=caseLang==='zh'?'zh-CN':'en';
 for(const link of document.querySelectorAll('.case-back,#case-prev-arrow,#case-next-arrow,#case-next')){const url=new URL(link.href,location.href);url.searchParams.set('lang',caseLang);if(url.pathname.endsWith('project.html'))url.searchParams.set('v','detail-four-projects-20261028');link.href=url.href;}
 if(caseLang==='zh'){

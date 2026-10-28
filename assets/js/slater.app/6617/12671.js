@@ -6,6 +6,17 @@ gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin);
 let scroll;
 let portfolioPhotoReveal;
 let transitionOffset = 425;
+window.portfolioWorkPosition = function () {
+  var section = document.querySelector('.section-team-credits');
+  if (!section) return 0;
+  var first = section.querySelector('.team-credits-row-title') || section;
+  var last = section.querySelector('.flickity-viewport') || section.querySelector('.flickity-slider-group') || section;
+  var top = first.getBoundingClientRect().top + window.scrollY;
+  var bottom = last.getBoundingClientRect().bottom + window.scrollY;
+  var inset = Math.max(64, (window.innerHeight - (bottom - top)) / 2);
+  var sectionTop = section.getBoundingClientRect().top + window.scrollY;
+  return Math.max(sectionTop, top - inset);
+};
 window.portfolioExpandMobileAbout = function () {
   if (!window.matchMedia('(max-width:767px)').matches) return;
   document.documentElement.classList.add('mobile-about-open');
@@ -337,7 +348,7 @@ function initLenis() {
   });
 
   window.portfolioJourneyPosition = function(){var entry=ScrollTrigger.getAll().find(function(t){return t.trigger&&t.trigger.matches('.section-home-how-first')&&t.animation;});return entry?entry.end:document.querySelector('#how-it-works-start');};
-  window.portfolioScroll = function(target, done){if(portfolioPhotoReveal)portfolioPhotoReveal.kill();scroll.start();scroll.scrollTo(target,{immediate:true,force:true});ScrollTrigger.update();requestAnimationFrame(function(){ScrollTrigger.update();var transition=ScrollTrigger.getAll().find(function(t){return t.trigger&&t.trigger.matches('.section-home-how-first')&&t.animation;});if(transition){var progress=Math.max(0,Math.min(1,(window.scrollY-transition.start)/(transition.end-transition.start)));transition.animation.totalProgress(progress);}if(done)done();});};
+  window.portfolioScroll = function(target, done){if(target&&target.nodeType===1&&target.matches('.section-team-credits'))target=window.portfolioWorkPosition();if(portfolioPhotoReveal)portfolioPhotoReveal.kill();scroll.start();scroll.scrollTo(target,{immediate:true,force:true});ScrollTrigger.update();requestAnimationFrame(function(){ScrollTrigger.update();var transition=ScrollTrigger.getAll().find(function(t){return t.trigger&&t.trigger.matches('.section-home-how-first')&&t.animation;});if(transition){var progress=Math.max(0,Math.min(1,(window.scrollY-transition.start)/(transition.end-transition.start)));transition.animation.totalProgress(progress);}if(done)done();});};
   scroll.on('scroll', ScrollTrigger.update);
 
   gsap.ticker.add((time) => {
@@ -517,6 +528,8 @@ function initBasicFunctions() {
     var headerHomeTransition = document.getElementById('header-home-transition');
     var homeTransitionFinished = false;
 
+    videoHomeTransition();
+
     // Set click box on display: none;
     gsap.set($('[data-home-transition="start"]'), {
       display: "none"
@@ -537,7 +550,6 @@ function initBasicFunctions() {
       opacity: 1,
       duration: 0.5,
       ease: "Power4.easeIn",
-      onStart: () => videoHomeTransition(),
       onComplete: () => removeVideoHomeLoop()
     });
 
@@ -594,8 +606,10 @@ function initBasicFunctions() {
     }
 
     function videoHomeTransition() {
-      headerHomeTransition.muted = true;
-      headerHomeTransition.defaultMuted = true;
+      headerHomeTransition.muted = false;
+      headerHomeTransition.defaultMuted = false;
+      headerHomeTransition.removeAttribute('muted');
+      headerHomeTransition.volume = 1;
       headerHomeTransition.playsInline = true;
       headerHomeTransition.loop = false;
       // Wall-clock timers run during mobile buffering; only reveal About after

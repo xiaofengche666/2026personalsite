@@ -5,7 +5,7 @@ Object.assign(dictionary,{"/ FRASER'S DESIGN JOURNEY": "/ Fraser的设计来时�
 dictionary['DIGITAL']='数字';dictionary['EXPERIENCES']='体验';
 dictionary['SWITCH LANGUAGE']='切换语言';
 Object.assign(dictionary,{"HOME": "首页", "ABOUT ME": "关于我", "DESIGN JOURNEY": "设计来时路", "COMPANIES": "服务过的公司"});
-var lang=new URLSearchParams(location.search).get('lang');if(lang!=='zh'&&lang!=='en'){lang='en';try{lang=localStorage.getItem('portfolio-language')==='zh'?'zh':'en';}catch(e){}}
+var lang=new URLSearchParams(location.search).get('lang');if(lang!=='zh'&&lang!=='en'){lang='zh';try{if(localStorage.getItem('portfolio-language-chosen')==='true')lang=localStorage.getItem('portfolio-language')==='en'?'en':'zh';}catch(e){}}
 try{localStorage.setItem('portfolio-language',lang);}catch(e){}
 document.documentElement.lang=lang==='zh'?'zh-CN':'en';
 if(lang==='zh'){
@@ -15,5 +15,5 @@ nodes.forEach(function(n){var key=n.textContent.trim().replace(/\u00a0/g,' ');if
 document.title='Fraser Li | 个人设计作品集';
 }
 document.querySelectorAll('.language-toggle').forEach(function(b){b.querySelector('[data-lang="'+lang+'"]').classList.add('active');b.setAttribute('aria-label',lang==='zh'?'切换为英文':'Switch to Chinese');});
-document.addEventListener('click',function(e){var b=e.target.closest('.language-toggle');if(!b)return;e.preventDefault();e.stopImmediatePropagation();try{localStorage.setItem('portfolio-language',lang==='en'?'zh':'en');}catch(e){}var url=new URL(location.href);url.searchParams.set('lang',lang==='en'?'zh':'en');location.assign(url.href);},true);
+document.addEventListener('click',function(e){var b=e.target.closest('.language-toggle');if(!b)return;e.preventDefault();e.stopImmediatePropagation();try{localStorage.setItem('portfolio-language',lang==='en'?'zh':'en');localStorage.setItem('portfolio-language-chosen','true');}catch(e){}var url=new URL(location.href);url.searchParams.set('lang',lang==='en'?'zh':'en');location.assign(url.href);},true);
 })();
