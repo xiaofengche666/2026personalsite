@@ -13,6 +13,9 @@ if(lang==='zh'){
 var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),nodes=[],node;
 while(node=walker.nextNode()){if(!node.parentElement.closest('script,style,svg,.language-toggle'))nodes.push(node);}
 nodes.forEach(function(n){var key=n.textContent.trim().replace(/\u00a0/g,' ');if(dictionary[key])n.textContent=n.textContent.replace(n.textContent.trim(),dictionary[key].replace(/。/g,''));});
+// Chinese reads as one phrase; retain the English word separator.
+var heroSecondLine=document.querySelector('.home-header-h1-span-line-2');
+if(heroSecondLine)Array.from(heroSecondLine.childNodes).forEach(function(n){if(n.nodeType===Node.TEXT_NODE&&!n.textContent.trim())n.remove();});
 
 }
 document.querySelectorAll('.language-toggle').forEach(function(b){b.querySelector('[data-lang="'+lang+'"]').classList.add('active');b.setAttribute('aria-label',lang==='zh'?'切换为英文':'Switch to Chinese');});
